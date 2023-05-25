@@ -1,7 +1,7 @@
 pipelene{
     agent{
         docker{
-            image: 'alpine:latest'
+             image: 'mcr.microsoft.com/playwright:v1.34.0-jammy'
         }
     }
     stages{
