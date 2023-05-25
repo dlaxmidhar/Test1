@@ -1,32 +1,30 @@
-pipelene{
-    agent{
-        docker{
-             image: 'mcr.microsoft.com/playwright:v1.34.0-jammy'
+pipeline {
+    agent {
+        docker {
+            image 'alpine:latest'
         }
     }
-    stages{
-        stage('install playwright'){
-            steps{
+    stages {
+        stage('install playwright') {
+            steps {
                 sh '''
                 npm i -D @playwright/test
                 npx playwright install
                 '''
             }
         }
-        stage('help'){
-            steps{
+        stage('help') {
+            steps {
                 sh 'npx playwright test --help'
-                }
+            }
         }
-        stage('test'){
-            steps{
+        stage('test') {
+            steps {
                 sh '''
                 npx playwright test --list
                 npx playwright test
                 '''
+            }
         }
-        }
-
     }
-
 }
