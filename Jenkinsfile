@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'nginx:1.19'
+            image 'node:14'
         }
     }
     stages {
@@ -28,3 +28,4 @@ pipeline {
         }
     }
 }
+
